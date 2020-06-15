@@ -1,10 +1,6 @@
-import logging
 import discord
 import datetime
 from discord.ext import commands
-from killer import utils
-
-log = logging.getLogger("killer")
 
 colors = {
     "BAN": discord.Colour.red(),
@@ -23,7 +19,7 @@ class AuditLogger(commands.Cog, name="AuditLogger"):
         embed = discord.Embed(
             description=f"@{user}",
             colour=colors["BAN"],
-            timestamp=utils.add_utc(datetime.datetime.utcnow()),
+            timestamp=datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc),
         )
         perp = None
         reason = None
@@ -54,7 +50,7 @@ class AuditLogger(commands.Cog, name="AuditLogger"):
         embed = discord.Embed(
             description=f"@{user}",
             colour=colors["UNBAN"],
-            timestamp=utils.add_utc(datetime.datetime.utcnow()),
+            timestamp=datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc),
         )
         perp = None
         reason = None
@@ -87,7 +83,7 @@ class AuditLogger(commands.Cog, name="AuditLogger"):
         embed = discord.Embed(
             description=f"@{member}",
             colour=colors["KICK"],
-            timestamp=utils.add_utc(datetime.datetime.utcnow()),
+            timestamp=datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc),
         )
         perp = None
         reason = None
@@ -120,7 +116,7 @@ class AuditLogger(commands.Cog, name="AuditLogger"):
     async def on_voice_state_update(self, member, before, after):
         guild = member.guild
         embed = discord.Embed(
-            timestamp=utils.add_utc(datetime.datetime.utcnow()),
+            timestamp=datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc),
             colour=colors["VOICE_CHANGE"],
         )
         embed.set_author(name=f"{member} Voice State Update")

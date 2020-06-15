@@ -1,10 +1,6 @@
-import logging
-
 from .audit_log import AuditLogger
 from .commands import Commands
 
-
-log = logging.getLogger("killer")
 cogs = [AuditLogger, Commands]
 
 

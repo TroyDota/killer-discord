@@ -1,8 +1,5 @@
-import logging
 import discord
 from discord.ext import commands
-
-log = logging.getLogger("killer")
 
 
 class Commands(commands.Cog, name="CustomCommands"):
@@ -41,6 +38,7 @@ class Commands(commands.Cog, name="CustomCommands"):
         )
         embed.set_thumbnail(url=member.avatar_url)
         await ctx.send(embed=embed)
+
 
 """
 # this command is for testing.

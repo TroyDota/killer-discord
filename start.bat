@@ -1,1 +1,1 @@
-.\venv\Scripts\python main.py -c config.ini
+.\venv\Scripts\python bot.py
