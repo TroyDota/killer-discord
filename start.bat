@@ -1,0 +1,1 @@
+.\venv\Scripts\python main.py -c config.ini
