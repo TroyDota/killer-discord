@@ -42,9 +42,12 @@ class Commands(commands.Cog, name="CustomCommands"):
         embed.set_thumbnail(url=member.avatar_url)
         await ctx.send(embed=embed)
 
+"""
+# this command is for testing.
     @commands.command()
     async def eval(self, ctx, *args):
         try:
             await ctx.send(eval(" ".join(list(args))))
         except Exception as e:
             await ctx.send(str(e))
+"""
